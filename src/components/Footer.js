@@ -1,10 +1,9 @@
 function Footer() {
-    return (
-        <footer class="footer page__section">
-        <p class="footer__copyright">&copy; 2020 Mesto Russia</p>
-      </footer>
-    );
-  }
+  return (
+    <footer className="footer page__section">
+      <p className="footer__copyright">&copy; 2020 Mesto Russia</p>
+    </footer>
+  );
+}
   
-  export default Footer;
-  
+export default Footer;  
