@@ -1,10 +1,11 @@
-function ImagePopup() {
+function ImagePopup(props) {
   return (
-    <div classname="popup popup_type_image">
-      <figure classname="popup__container popup__container_type_image">
-        <button type="button" classname="popup__close-button buttons" />
-        <img classname="popup__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg" alt="Фотография места" />
-        <figcaption classname="popup__caption" />
+    <div className={`popup popup_type_image ${props.card ? 'popup_opened' : ''}`}> 
+      <figure className="popup__container popup__container_type_image">
+        <button type="button" className="popup__close-button buttons" onClick={props.onClose}/>
+        <img className="popup__image" src={props.card ? props.card.link : ''} alt={props.card ? props.card.name : ''} />
+        <figcaption className="popup__caption">{props.card ? props.card.name : ''}
+        </figcaption>
       </figure>
     </div>
   );
