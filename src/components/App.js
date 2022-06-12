@@ -39,6 +39,7 @@ function App() {
   
   return (
     <div className="page">
+      <div className="page__contant">
       <Header />
       <Main 
         onEditProfile={handleEditProfileClick}
@@ -62,6 +63,7 @@ function App() {
         card={selectedCard} 
         onClose={closeAllPopups}
       />
+      </div>
     </div>
   );
 }

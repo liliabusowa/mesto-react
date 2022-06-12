@@ -7,6 +7,7 @@
 /*Cтили блоков и элементов*/
 @import url(./blocks/page/page.css);
 @import url(./blocks/page/__section/page__section.css);
+@import url(./blocks/page/__contant/page__contant.css);
 
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);

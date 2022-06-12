@@ -4,9 +4,9 @@ import PopupWithForm from "./PopupWithForm";
 function EditProfilePopup(props) {
     return(
         <PopupWithForm 
-          name={'profile'}
-          title={"Редактировать профиль"}
-          buttonText={"Сохранить"}
+          name="profile"
+          title="Редактировать профиль"
+          buttonText="Сохранить"
           isOpen={props.isOpen}
           onClose={props.onClose}
         >

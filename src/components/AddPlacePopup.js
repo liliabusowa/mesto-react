@@ -4,9 +4,9 @@ import PopupWithForm from "./PopupWithForm";
 function AddPlacePopup(props) {
     return(
         <PopupWithForm
-        name={'card'}
-        title={"Новое место"}
-        buttonText={"Создать"}
+        name="card"
+        title="Новое место"
+        buttonText="Создать"
         isOpen={props.isOpen}
         onClose={props.onClose}
       >

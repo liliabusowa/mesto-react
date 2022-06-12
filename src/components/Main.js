@@ -4,9 +4,9 @@ import Card from "./Card";
 
 function Main(props) {
   // Переменные состояния полей профиля пользователя (имя, о себе, аватар)
-  const [userName, setUserName] = React.useState();
-  const [userDescription, setUserDescription] = React.useState();
-  const [userAvatar, setUserAvatar] = React.useState();
+  const [userName, setUserName] = React.useState('');
+  const [userDescription, setUserDescription] = React.useState('');
+  const [userAvatar, setUserAvatar] = React.useState('');
   const [cards, setCards] = React.useState([]);
 
 
@@ -66,13 +66,13 @@ function Main(props) {
       </section>
       <section className="gallery page__section" aria-label="Секция с карточками мест">
         <ul className="gallery__list">
-          {cards.map(card => {
-            return <Card 
+          {cards.map(card => (
+            <Card 
               key={card._id} 
               card={card} 
               onCardClick={props.onCardClick}
-              />;
-          })}
+              />
+          ))}
         </ul>
       </section>
     </main>
