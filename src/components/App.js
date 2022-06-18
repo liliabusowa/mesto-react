@@ -49,33 +49,35 @@ function App() {
   }
   
   return (
-    <div className="page">
-      <div className="page__contant">
-      <Header />
-      <Main 
-        onEditProfile={handleEditProfileClick}
-        onAddPlace={handleAddPlaceClick}
-        onEditAvatar={handleEditAvatarClick}
-        onCardClick={handleCardClick}/>
-      <Footer />
-      <EditProfilePopup
-        isOpen={isEditProfilePopupOpen}   
-        onClose={closeAllPopups}   
-      />
-      <AddPlacePopup
-        isOpen={isAddPlacePopupOpen}
-        onClose={closeAllPopups}
-      />
-      <EditAvatarPopup
-        isOpen={isEditAvatarPopupOpen}
-        onClose={closeAllPopups}
-      />
-      <ImagePopup 
-        card={selectedCard} 
-        onClose={closeAllPopups}
-      />
+    <CurrentUserContext.Provider value={currentUser}>
+      <div className="page">
+        <div className="page__contant">
+        <Header />
+        <Main 
+          onEditProfile={handleEditProfileClick}
+          onAddPlace={handleAddPlaceClick}
+          onEditAvatar={handleEditAvatarClick}
+          onCardClick={handleCardClick}/>
+        <Footer />
+        <EditProfilePopup
+          isOpen={isEditProfilePopupOpen}   
+          onClose={closeAllPopups}   
+        />
+        <AddPlacePopup
+          isOpen={isAddPlacePopupOpen}
+          onClose={closeAllPopups}
+        />
+        <EditAvatarPopup
+          isOpen={isEditAvatarPopupOpen}
+          onClose={closeAllPopups}
+        />
+        <ImagePopup 
+          card={selectedCard} 
+          onClose={closeAllPopups}
+        />
+        </div>
       </div>
-    </div>
+    </CurrentUserContext.Provider>
   );
 }
 
