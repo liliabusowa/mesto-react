@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import apiconfig from '../utils/api';
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -13,6 +14,15 @@ function App() {
   const [isAddPlacePopupOpen, setisAddPlacePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setisEditAvatarPopupOpen] = React.useState(false);
   const [selectedCard, setSelectedCard] = React.useState(null);
+  const [currentUser, setCurrentUser] = React.useState({});
+
+  useEffect(() => {
+    Promise.all([apiconfig.getUserInfo()]).then(([user]) => {
+      setCurrentUser(user);
+    }).catch((err) => {
+      console.error(err);
+    });
+  }, []);
 
   function handleEditAvatarClick() {
     setisEditAvatarPopupOpen(true);
