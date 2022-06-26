@@ -18,32 +18,23 @@ class Api {
       headers: this._headers,
     }).then(this._checkResponse);
   }
+    // Получение начального массива карточек
+    getInitialCards() { 
+      return fetch(`${this._baseUrl}cards`, {
+        method: 'GET',
+        headers: this._headers,
+      }).then(this._checkResponse);
+    }
+  
   // Редактирование профиля пользователя
-  editUser({ userName, userDescription }) {
+  editUser(data) {
     return fetch(`${this._baseUrl}users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: userName,
-        about: userDescription,
+        name: data.userName,
+        about: data.userDescription,
       }),
-    }).then(this._checkResponse);
-  }
-  // Обновление аватара
-  updateAvatar({ avatarUrl }) {
-    return fetch(`${this._baseUrl}users/me/avatar`, {
-      method: 'PATCH',
-      headers: this._headers,
-      body: JSON.stringify({
-        avatar: avatarUrl,
-      }),
-    }).then(this._checkResponse);
-  }
-  // Получение начального массива карточек
-  getInitialCards() {
-    return fetch(`${this._baseUrl}cards`, {
-      method: 'GET',
-      headers: this._headers,
     }).then(this._checkResponse);
   }
   // Запостить карточку
@@ -58,29 +49,39 @@ class Api {
     }).then(this._checkResponse);
   }
   // Удаление карточки
-  deleteCard(cardId) {
-    return fetch(`${this._baseUrl}cards/${cardId}`, {
+  deleteCard(data) {
+    return fetch(`${this._baseUrl}cards/${data._id}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._checkResponse);
   }
-  // Постановка лайка карточки
-  setLike(cardId) {
-    return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
-      method: 'PUT',
-      headers: this._headers,
-    }).then(this._checkResponse);
-  }
-  // Удаление лайка карточки
+    // Постановка лайка карточки
+    setLike(cardId) {
+      return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
+        method: 'PUT',
+        headers: this._headers,
+      }).then(this._checkResponse);
+    }
+    // Удаление лайка карточки
   deleteLike(cardId) {
     return fetch(`${this._baseUrl}cards/likes/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
     }).then(this._checkResponse);
   }
+  // Обновление аватара
+  updateAvatar({ avatarUrl }) {
+    return fetch(`${this._baseUrl}users/me/avatar`, {
+      method: 'PATCH',
+      headers: this._headers,
+      body: JSON.stringify({
+        avatar: avatarUrl,
+      }),
+    }).then(this._checkResponse);
+  }  
 }
 
-const apiconfig = new Api({
+const api = new Api({
   baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-41/',
   headers: {
     authorization: 'eb71ba51-dc7b-49aa-958f-b9e4deaf316b',
@@ -88,4 +89,4 @@ const apiconfig = new Api({
   }
 })
 
-export default apiconfig;
+export default api;
