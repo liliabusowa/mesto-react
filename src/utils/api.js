@@ -27,13 +27,13 @@ class Api {
     }
   
   // Редактирование профиля пользователя
-  editUser(data) {
+  editUser(data) { 
     return fetch(`${this._baseUrl}users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        name: data.userName,
-        about: data.userDescription,
+        name: data.profile_name,
+        about: data.profile_job,
       }),
     }).then(this._checkResponse);
   }
@@ -70,12 +70,12 @@ class Api {
     }).then(this._checkResponse);
   }
   // Обновление аватара
-  updateAvatar({ avatarUrl }) {
+  updateAvatar( data ) {
     return fetch(`${this._baseUrl}users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({
-        avatar: avatarUrl,
+        avatar: data.avatar_link
       }),
     }).then(this._checkResponse);
   }  
